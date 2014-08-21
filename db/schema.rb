@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821133144) do
+ActiveRecord::Schema.define(version: 20140821135923) do
 
   create_table "contacts", force: true do |t|
     t.integer  "site_id"
@@ -36,14 +36,6 @@ ActiveRecord::Schema.define(version: 20140821133144) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "licences_sites", force: true do |t|
-    t.integer "licence_id"
-    t.integer "site_id"
-  end
-
-  add_index "licences_sites", ["licence_id"], name: "index_licences_sites_on_licence_id"
-  add_index "licences_sites", ["site_id"], name: "index_licences_sites_on_site_id"
 
   create_table "sites", force: true do |t|
     t.string   "company"
