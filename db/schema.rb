@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140822045419) do
+ActiveRecord::Schema.define(version: 20140822101000) do
 
   create_table "contacts", force: true do |t|
     t.integer  "site_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140822045419) do
 
   create_table "licences", force: true do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "type_of_licence"
     t.date     "date"
     t.integer  "quantity"
     t.string   "web_site_of_purchase"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140822045419) do
   create_table "sites", force: true do |t|
     t.string   "company"
     t.string   "url"
-    t.string   "type"
+    t.string   "type_of_site"
     t.string   "user_name_site"
     t.string   "password_site"
     t.string   "gmail_of_site"

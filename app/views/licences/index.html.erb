@@ -1,2 +1,43 @@
-<h1>Licences#index</h1>
-<p>Find me in app/views/licences/index.html.erb</p>
+<h2 class="text-center">All licences</h2>
+<div class="text-center">
+  <%= link_to "Add new licence", new_licence_path, class: 'btn btn-success' %>
+</div>
+
+<% if @licences.empty? %>
+  <p> There seem not to be any licences </p>
+<% else %>
+  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th>Web site of purchase</th>
+            <th>Company of purchase</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_number = 1 %>
+          <% @licences.each do |licence| %>
+            <tr>
+              <% # it just counts from 1 up %>
+              <td><%= current_number %></td>
+              <% current_number = current_number + 1 %>
+              
+              <td><%= licence.name %></td>
+              <td><%= licence.name %></td>
+              <td><%= licence.type_of_licence %></td>
+              <td><%= licence.date %></td>
+              <td><%= licence.quantity %></td>
+              <td><%= licence.web_site_of_purchase %></td>
+              <td><%= licence.company_of_purchase %></td>
+              <td><%= number_to_currency(licence.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
+            </tr>
+            
+          <% end %>
+        </tbody>
+      </table>
+<% end %>
