@@ -1,4 +1,10 @@
 class ContactsController < ApplicationController
+
+  def index
+    @site = Site.find(params[:site_id])
+    @contact = @site.contacts.all    
+  end
+  
   def show
   end
 
@@ -12,7 +18,11 @@ class ContactsController < ApplicationController
   
   def create
     @site = Site.find(params[:site_id])
-    @contact = @site.contacts.create(contacts_params)  
+    if @contact = @site.contacts.create(contacts_params) 
+      redirect_to site_path(@site)
+    else
+      render 'new'
+    end
   end
   
   

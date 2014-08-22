@@ -41,7 +41,8 @@
     
     <td><%= link_to 'Edit', edit_site_path(site), class: 'btn btn-default'  %></td>
     <td><%= link_to 'Delete', site_path(site), method: :delete, data: { confirm: 'Are you shuro you want to delete this site?' }, class: 'btn btn-default'  %></td>
-    <td><%= link_to 'contacts', new_site_contact_path(site), class: 'btn btn-default' %></td>
+    <td><%= link_to 'new contact', new_site_contact_path(site), class: 'btn btn-default' %></td>
+    <td><%= link_to 'all contact', site_contacts_path(site), class: 'btn btn-default' %></td>
             </tr>
             
           <% end %>
