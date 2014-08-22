@@ -1,15 +1,5 @@
 <h1 class="text-center">Add new licence</h1>
 
-<div class="centers-forms">
-    <%= bootstrap_form_for @licence do |f| %>
-      <%= f.text_field :name %>
-      <%= f.text_field :type_of_licence %>
-      <%= f.date_field :date %>
-      <%= f.select :quantity, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['unlimited', 1000000]] %>
-      <%= f.text_field :web_site_of_purchase %>
-      <%= f.text_field :company_of_purchase %>
-      <%= f.number_field :price %>
-      
-  <%= f.submit "Add new", class: "btn btn-success" %>
-  <% end %>
+<%= render 'form' %>
+
 </div>

@@ -1,0 +1,12 @@
+<div class="centers-forms">
+  <%= bootstrap_form_for @site do |f| %>
+      <%= f.text_field :company %>
+      <%= f.text_field :url %>
+      <%= f.select :type_of_site, [ 'website', 'webstore', 'application' ], label: 'Type' %>
+      <%= f.text_field :user_name_site %>
+      <%= f.text_field :password_site %>
+      <%= f.text_field :gmail_of_site %>
+      <%= f.text_field :gmail_password %>
+      <%= f.text_field :dropbox_password %>  
+      <%= f.submit "Save", class: "btn btn-success" %>
+  <% end %>

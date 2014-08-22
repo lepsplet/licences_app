@@ -1,2 +1,50 @@
-<h1>Sites#index</h1>
-<p>Find me in app/views/sites/index.html.erb</p>
+<div class="text-center">
+  <%= link_to "Add new website or app", new_site_path, class: 'btn btn-success' %>
+</div>
+<br>
+
+<h2 class="text-center">All websites & apps</h2>
+
+<% if @sites.empty? %>
+  <p> There seem not to be any websites or apps in the database </p>
+<% else %>
+  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Company</th>
+            <th>url</th>
+            <th>Type</th>
+            <th>User name</th>
+            <th>Password</th>
+            <th>Gmail</th>
+            <th>Gmail password</th>
+            <th>Dropbox password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_number = 1 %>
+          <% @sites.each do |site| %>
+            <tr>
+              <% # it just counts from 1 up %>
+              <td><%= current_number %></td>
+              <% current_number = current_number + 1 %>
+              
+    <td><%= site.company %></td>
+    <td><%= site.url %></td>
+    <td><%= site.type_of_site %></td>
+    <td><%= site.user_name_site %></td>
+    <td><%= site.password_site %></td>
+    <td><%= site.gmail_of_site %></td>
+    <td><%= site.gmail_password %></td>
+    <td><%= site.dropbox_password %></td>
+    
+    <td><%= link_to 'Edit', edit_site_path(site), class: 'btn btn-default'  %></td>
+    <td><%= link_to 'Delete', site_path(site), method: :delete, data: { confirm: 'Are you shuro you want to delete this site?' }, class: 'btn btn-default'  %></td>
+    <td><%= link_to 'contacts', new_site_contact_path(site), class: 'btn btn-default' %></td>
+            </tr>
+            
+          <% end %>
+        </tbody>
+      </table>
+<% end %>

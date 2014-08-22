@@ -1,0 +1,9 @@
+<div class="centers-forms">
+  <%= bootstrap_form_for [ @site, @contact ] do |f| %>
+      <%= f.text_field :name %>
+      <%= f.text_field :company %>
+      <%= f.text_field :telephone %>
+      <%= f.text_field :email %>
+      
+      <%= f.submit "Save", class: "btn btn-success" %>
+  <% end %>

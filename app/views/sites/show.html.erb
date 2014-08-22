@@ -1,2 +1,44 @@
-<h1>Sites#show</h1>
-<p>Find me in app/views/sites/show.html.erb</p>
+<div class="text-center">
+
+  <h1><%= @site.type_of_site %> for <%= @site.company %></h1><br>
+
+  <h4>Company</h4>
+  <p><%= @site.company %></p><br>
+  
+  <h4>Url</h4>
+  <p><%= @site.url %></p><br>
+  
+  <h4>Type</h4>
+  <p><%= @site.type_of_site %></p><br>
+  
+  <h4>User name or admin</h4>
+  <p><%= @site.user_name_site %></p><br>
+  
+  <h4>password for the <%= @site.type_of_site %></h4>
+  <p><%= @site.password_site %></p><br>
+  
+  <h4>Gmail</h4>
+  <p><%= @site.gmail_of_site %></p><br>
+  
+  <h4>Gmail passowrd</h4>
+  <p><%= @site.gmail_password %></p><br>
+  
+  <h4>dropbox password</h4>
+  <p><%= @site.dropbox_password %></p><br>
+
+    <br>
+  
+  <%= link_to 'Go to all websites & apps ', sites_path, class: 'btn btn-lg btn-primary' %>
+
+  <br>
+  <br> 
+  <%= link_to 'Edit this ', edit_site_path(@site), class: 'btn btn-default' %>
+  
+  <br>
+  <br>
+
+
+
+
+
+</div>

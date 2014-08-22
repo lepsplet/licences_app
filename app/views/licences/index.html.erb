@@ -1,10 +1,12 @@
-<h2 class="text-center">All licences</h2>
 <div class="text-center">
   <%= link_to "Add new licence", new_licence_path, class: 'btn btn-success' %>
 </div>
+<br>
+
+<h2 class="text-center">All licences</h2>
 
 <% if @licences.empty? %>
-  <p> There seem not to be any licences </p>
+  <p>There seem not to be any licences in the database</p>
 <% else %>
   <table class="table table-striped">
         <thead>
@@ -28,13 +30,14 @@
               <% current_number = current_number + 1 %>
               
               <td><%= licence.name %></td>
-              <td><%= licence.name %></td>
               <td><%= licence.type_of_licence %></td>
               <td><%= licence.date %></td>
               <td><%= licence.quantity %></td>
               <td><%= licence.web_site_of_purchase %></td>
               <td><%= licence.company_of_purchase %></td>
               <td><%= number_to_currency(licence.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
+              <td><%= link_to 'Edit', edit_licence_path(licence), class: 'btn btn-default'  %></td>
+              <td><%= link_to 'Delete', licence_path(licence), method: :delete, data: { confirm: 'Are you shuro you want to delete this licence?' }, class: 'btn btn-default'  %></td>
             </tr>
             
           <% end %>

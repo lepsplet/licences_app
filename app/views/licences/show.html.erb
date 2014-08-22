@@ -1,2 +1,39 @@
-<h1>Licences#show</h1>
-<p>Find me in app/views/licences/show.html.erb</p>
+<div class="text-center">
+
+  <h1>Licence for <%= @licence.name %></h1><br>
+
+  <h4>Name or description</h4>
+  <p><%= @licence.name %></p><br>
+
+  <h4>Type data</h4>
+  <p><%= @licence.type_of_licence %></p><br>
+    
+  <h4>Date of purtchase</h4>
+  <p><%= @licence.date %></p><br>
+  
+  <h4>Quantity</h4>
+  <p><%= @licence.quantity %></p><br>
+
+  <h4>Website of purchase</h4>
+  <p><%= @licence.web_site_of_purchase %></p><br>
+  
+  <h4>Company of purchase</h4>
+  <p><%= @licence.company_of_purchase %></p><br>
+  
+  <h4>Paid price in Euros</h4>
+  <p><%= @licence.price %></p><br>
+  
+  
+  <br>
+  
+  <%= link_to 'Go to all licences', licences_path, class: 'btn btn-lg btn-primary' %>
+
+  <br>
+  <br> 
+  <%= link_to 'Edit this   licences', edit_licence_path(@licence), class: 'btn btn-default' %>
+  
+  <br>
+  <br>
+
+
+</div>

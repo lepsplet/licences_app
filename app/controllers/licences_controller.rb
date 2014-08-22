@@ -4,6 +4,7 @@ class LicencesController < ApplicationController
   end
 
   def show
+    @licence = Licence.find(params[:id])
   end
 
   def new
@@ -21,8 +22,24 @@ class LicencesController < ApplicationController
   end
 
   def edit
+    @licence = Licence.find(params[:id])
   end  
   
+  def update
+    @licence = Licence.find(params[:id])
+    
+    if @licence.update(licence_params)
+      redirect_to @licence
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    @licence = Licence.find(params[:id])
+    @licence.destroy
+    redirect_to licences_path
+  end
   
   
   private
