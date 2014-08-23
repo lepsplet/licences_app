@@ -3,6 +3,20 @@ class LicencesController < ApplicationController
     @licences = Licence.all
   end
 
+	def use
+		@sites = Site.all
+		@licence = Licence.find(params[:id])
+	end
+
+	def save_licence_to_site
+
+		site = params[:site]
+		licence = params[:licence]
+
+		find_site_for_licence = LicenceSite.new(site_id: site, licence_id: licence)
+		redirect_to site_path(site)
+	end
+
   def show
     @licence = Licence.find(params[:id])
   end

@@ -1,0 +1,35 @@
+
+<%= @licence.name %> <br>
+<%= @licence.id %> <br>
+quantity:
+<%= @licence.quantity %> 
+
+<% if @sites.empty? %>
+  <p> There seem not to be any websites or apps in the database </p>
+<% else %>
+  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Company</th>
+            <th>url</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_number = 1 %>
+          <% @sites.each do |site| %>
+            <tr>
+              <% # it just counts from 1 up %>
+              <td><%= current_number %></td>
+              <% current_number = current_number + 1 %>
+              
+    <td><%= site.company %></td>
+    <td><%= site.url %></td>
+    
+		<td><%= link_to 'Apply this licence on this app', { action: :save_licence_to_site, id: site[:id], licence: @licence[:id], site: site[:id] }, class: 'btn btn-default'  %></td>
+            </tr>
+            
+          <% end %>
+        </tbody>
+      </table>
+<% end %>

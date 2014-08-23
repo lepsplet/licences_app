@@ -36,6 +36,10 @@
               <td><%= licence.web_site_of_purchase %></td>
               <td><%= licence.company_of_purchase %></td>
               <td><%= number_to_currency(licence.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
+							<% if licence.quantity > 0 %>
+								<td><%= link_to 'Use it', use_path(licence), class: 'btn btn-default'  %></td>
+
+							<% end %>
               <td><%= link_to 'Edit', edit_licence_path(licence), class: 'btn btn-default'  %></td>
               <td><%= link_to 'Delete', licence_path(licence), method: :delete, data: { confirm: 'Are you shuro you want to delete this licence?' }, class: 'btn btn-default'  %></td>
             </tr>
