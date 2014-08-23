@@ -2,14 +2,12 @@ class ContactsController < ApplicationController
 
   def index
     @site = Site.find(params[:site_id])
-    @contact = @site.contacts.all    
+    @contact = @site.contacts
   end
   
   def show
   end
 
-  def edit
-  end
 
   def new
     @site = Site.find(params[:site_id])
@@ -24,7 +22,28 @@ class ContactsController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    @site = Site.find(params[:site_id])
+	@contact = @site.contacts.find(params[:id])
+  end
+
+  def update
+    @site = Site.find(params[:site_id])
+	@contact = @site.contacts.find(params[:id])
+	if @contact.update(contacts_params)
+      redirect_to site_contacts_path(@site)
+    else
+      render 'edit'
+    end
+  end
   
+  def destroy
+		@site = Site.find(params[:site_id])
+		@contact = @site.contacts.find(params[:id])
+		@contact.destroy
+		redirect_to site_contacts_path(@site)
+  end
   
   private
   

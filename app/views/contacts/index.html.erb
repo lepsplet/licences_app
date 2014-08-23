@@ -3,3 +3,39 @@
 </div>
 <br>
 
+<h2 class="text-center">All contacts for <%= @site.company %></h2>
+
+<% if @contact.empty? %>
+  <p> there seem not to be any contasts for <%= @site.company %></p>
+<% else %>
+  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Telephone</th>
+            <th>email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_number = 1 %>
+          <% @contact.each do |contact| %>
+            <tr>
+              <% # it just counts from 1 up %>
+              <td><%= current_number %></td>
+              <% current_number = current_number + 1 %>
+
+    <td><%= contact.name %></td>
+    <td><%= contact.company %></td>
+    <td><%= contact.telephone %></td>
+    <td><%= contact.email %></td>
+
+    <td><%= link_to 'edit', edit_site_contact_path(@site, contact), class: 'btn btn-default'  %></td>
+    <td><%= link_to 'delete', site_contact_path(@site, contact), method: :delete, data: { confirm: 'are you shuro you want to delete this contact?' }, class: 'btn btn-default'  %></td>
+            </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+<% end %>
